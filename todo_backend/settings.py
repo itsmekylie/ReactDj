@@ -100,7 +100,7 @@ DATABASES = {
 }
 
 
-DATABASES["default"] = dj_database_url.parse("postgresql://todolist_i030_user:Jmf0pAEv7fyfLQmJUmRhIWXtmDws5MJi@dpg-cvn7nnemcj7s73e71ov0-a.oregon-postgres.render.com/todolist_i030")
+DATABASES["default"] = dj_database_url.parse("postgresql://kyliebete_django_render_user:99VL6NhaBTZd8nHbX727mpMrXbQt2MeW@dpg-cvnu9h3e5dus73e15obg-a.singapore-postgres.render.com/kyliebete_django_renders")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
