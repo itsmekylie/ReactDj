@@ -126,3 +126,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000/",
+    "https://itsmekylie.github.io/",
+     "http://localhost:8000/",
+]
+
+
+Allow credentials (e.g., cookies, authorization headers)
+CORS_ALLOW_CREDENTIALS = True
+
+Allow all headers (simplify for development)
+CORS_ALLOW_ALL_HEADERS = True  # Or specify explicitly as you did
+
+CORS_ALLOW_ALL_ORIGINS = True
