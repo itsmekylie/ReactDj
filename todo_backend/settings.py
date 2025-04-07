@@ -10,8 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import dj_database_url
-
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,13 +17,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ljjxj3u42=!xpzh#%=3n7&mqrpk34&8bop_tp00&n^16)a_1y+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -53,8 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'corsheaders',
-    'rest_framework',  
     'todo',
 ]
 
@@ -78,6 +77,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'todo_backend.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -98,10 +98,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-DATABASES ["default"] = dj_database_url.parse("postgresql://kyliebete_django_render_user:99VL6NhaBTZd8nHbX727mpMrXbQt2MeW@dpg-cvnu9h3e5dus73e15obg-a.singapore-postgres.render.com/kyliebete_django_renders")
+
+
+DATABASES["default"] = dj_database_url.parse("postgresql://todolist_i030_user:Jmf0pAEv7fyfLQmJUmRhIWXtmDws5MJi@dpg-cvn7nnemcj7s73e71ov0-a.oregon-postgres.render.com/todolist_i030")
 
 # Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -120,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
+# https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -132,24 +134,26 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000/",
-    "https://itsmekylie.github.io/",
-    "http://localhost:8000/",
+    "http://localhost:3000",  
+    "https://itsmekylie.github.io",
+     "http://localhost:8000",   
 ]
 
 
+# Allow credentials (e.g., cookies, authorization headers)
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOW_ALL_HEADERS = True  
+# Allow all headers (simplify for development)
+CORS_ALLOW_ALL_HEADERS = True  # Or specify explicitly as you did
 
 CORS_ALLOW_ALL_ORIGINS = True
